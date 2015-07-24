@@ -11,7 +11,21 @@ import RealmSwift
 
 class taskListViewController: UIViewController {
 
+    //var taskTableViewCell: TaskTableViewCell?
+    
     @IBOutlet weak var taskListTableView: UITableView!
+    
+    @IBOutlet weak var deleteTasksButton: UIButton!
+    
+    var titleTest:String!
+    @IBAction func deleteDoneTasks(sender: AnyObject) {
+       /* var cellsToBeDeleted = [TaskTableViewCell]()
+        //for index in 0...taskListTableView.deleteRowsAtIndexPaths(, withRowAnimation: )
+        for index in 0...taskListTableView.numberOfSections() {
+            var path = NSIndexPath().indexPathByAddingIndex(index)
+            if taskListTableView.cellForRowAtIndexPath(path)
+        }*/
+    }
     
     var selectedTask:Task!
     
@@ -27,21 +41,7 @@ class taskListViewController: UIViewController {
         super.viewDidLoad()
         taskListTableView.dataSource = self
         taskListTableView.delegate = self
-        //tasks = realm.objects(Task).sorted("endDate", ascending: false)
-        
-        //tasks = realm.objects(Task)
-        
-        //realm.deleteAll()
-        /*let myTask = Task()
-        myTask.title   = "Test Task!!!!!"
-        myTask.content = "A long piece of content"
-        
-        let realm = Realm() // 1
-        realm.write() { // 2
-            realm.add(myTask) // 3
-        }
-        
-        tasks = realm.objects(Task)*/
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -64,7 +64,7 @@ class taskListViewController: UIViewController {
                 let source = segue.sourceViewController as! NewTaskViewController
                 
                 realm.write() {
-                    realm.add(source.currentTask!)
+                    realm.add(source.currentTask!) //currentTask
                 }
             case "Delete":
                 realm.write() {
@@ -82,13 +82,16 @@ class taskListViewController: UIViewController {
             tasks = realm.objects(Task)
         }
         
-         func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            if (segue.identifier == "ShowExistingTask") {
-                let taskViewController = segue.destinationViewController as! TaskDisplayViewController
-                taskViewController.task = selectedTask
-            }
+           }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "ShowExistingTask") {
+            let taskViewController = segue.destinationViewController as! TaskDisplayViewController
+            taskViewController.task = selectedTask
+            //taskViewController.title = selectedTask.title
         }
     }
+
 
     /*
     // MARK: - Navigation
@@ -105,11 +108,21 @@ class taskListViewController: UIViewController {
 extension taskListViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath) as! TaskTableViewCell //1
+        let cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath) as! TaskTableViewCell
         
         let row = indexPath.row
         let task = tasks[row] as Task
         cell.task = task
+        
+        cell.checked = false
+        //currentCell.checked = false
+        /*var currentCell = cell
+        if currentCell.checked! {
+            if deleteTasksButton.isFirstResponder() {
+                delete(currentCell)
+            }//enabled
+            
+        }*/
         
         return cell
     }
@@ -124,6 +137,13 @@ extension taskListViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedTask = tasks[indexPath.row]      //1
+        
+        println(indexPath.row)
+        for task in tasks {
+            println(task.endDate)
+            titleTest =  task.title
+               selectedTask = task
+        }
         self.performSegueWithIdentifier("ShowExistingTask", sender: self)     //2
     }
     

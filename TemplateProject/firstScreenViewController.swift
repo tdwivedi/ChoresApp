@@ -8,14 +8,19 @@
 
 import UIKit
 import Parse
+import RealmSwift
+import ConvenienceKit
 
 class firstScreenViewController: UIViewController {
 
-    @IBAction func goButtonTapped(sender: AnyObject) {
-       /* let loginViewController = PFLogInViewController()
-        loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
-        loginViewController.delegate = parseLoginHelper
-        loginViewController.signUpController?.delegate = parseLoginHelper*/
+    @IBOutlet weak var allTasksTableView: UITableView!
+    
+    
+    var allMyTasks: Results<Task>! {
+        didSet {
+            // Whenever notes update, update the table view
+            allTasksTableView?.reloadData()
+        }
     }
     
     @IBAction func unwindToSegue(segue: UIStoryboardSegue) {

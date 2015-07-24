@@ -15,7 +15,9 @@ import ParseUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+    var logoView: UIView!
+    //var imageView: UIImageView
+    var background: UIColor!
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
@@ -35,6 +37,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper
+        
+        /*loginViewController.logInView?.backgroundColor = UIColor.blueColor()
+        loginViewController.logInView?.logo = self.logoView
+        background.init(patternImage UIImage(named: "checked_box"))
+        logoView.backgroundColor = background*/
+        
+        //hide image in firstscreenviewcontroller
+        
+        var logInLogoTitle = UILabel()
+        logInLogoTitle.text = "APP"
+        
+        //background.backgr
+        //logInLogoTitle.backgroundColor = background.init(patternImage: UIImage(named: "checked_box")!)
+        loginViewController.logInView?.logo = logInLogoTitle
+         //var image = UIImage(named: "checked_box")
+        //loginViewController.logInView?.logo = image
+        //loginViewController.logInView?.facebookButton.d
         
         startViewController = loginViewController
     }

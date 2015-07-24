@@ -29,6 +29,7 @@ class NewTaskViewController: UIViewController {
             currentTask = Task()
             let taskViewController = segue.destinationViewController as! TaskDisplayViewController
             taskViewController.task = currentTask
+            taskViewController.edit = true
         }
     }
     

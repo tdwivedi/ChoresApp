@@ -7,15 +7,35 @@
 //
 
 import UIKit
+import RealmSwift
 
 class multipleGroupsViewController: UIViewController {
     
     @IBOutlet weak var multipleGroupsTableView: UITableView!
     
+    var groups: Results<Group>! {
+        didSet {
+            // Whenever notes update, update the table view
+            multipleGroupsTableView?.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         multipleGroupsTableView.dataSource = self
+        
+        let myGroup = Group()
+        myGroup.groupName = "TRISHA'S GROUP!!!!"
+        
+        let realm = Realm()
+        realm.write() {
+            realm.add(myGroup)
+            //realm.deleteAll()
+        }
+        
+        groups = realm.objects(Group)
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -50,13 +70,14 @@ extension multipleGroupsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupTableViewCell", forIndexPath: indexPath) as! GroupTableViewCell //1
         
         let row = indexPath.row
-        cell.textLabel?.text = "Group Name"
+        let group = groups[row] as Group
+        cell.group = group
         
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return Int(groups?.count ?? 0)
     }
     
 }

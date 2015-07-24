@@ -13,4 +13,5 @@ class Task : Object {
     dynamic var title: String = ""
     dynamic var content: String = ""
     dynamic var endDate: String = ""
+    //dynamic var done: Bool = false
 }

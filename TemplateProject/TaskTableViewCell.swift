@@ -14,12 +14,33 @@ class TaskTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    var checked:Bool?
+    
+    
+    @IBOutlet weak var checkboxButton: UIButton!
+    
+    
+    @IBAction func checkButton(sender: AnyObject) {
+        if !checked! {
+            checkboxButton.setImage(UIImage(named: "checked_box"), forState: .Normal)
+            checked = true
+        }
+        else {
+            checkboxButton.setImage(UIImage(named: "checkbox"), forState: .Normal)
+            checked = false
+        }
+    }
+
+    
     var task: Task? {
         didSet {
             if let task = task, taskLabel = taskLabel, timeLabel = timeLabel {
+                println(task.title)
+                 println(task.content)
+                 println(task.endDate)
                   self.taskLabel.text = task.title
                 //self.taskLabel.text = titleTextField.text
-                self.timeLabel.text = "Today"
+                self.timeLabel.text = task.endDate
             }
         }
     }

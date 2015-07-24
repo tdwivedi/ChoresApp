@@ -35,6 +35,10 @@
 		62A07D6E1B1F7FB9001F6916 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; };
 		62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63BC6B8CAE42C81DC0A444FD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C50A82F7A3702CAE3667A41 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A35667671B5EB93300975598 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35667661B5EB93300975598 /* Group.swift */; };
+		A356676A1B60572C00975598 /* CustomSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35667691B60572C00975598 /* CustomSignUpViewController.swift */; };
+		A356676C1B60575200975598 /* CustomLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A356676B1B60575200975598 /* CustomLoginViewController.swift */; };
+		A35667721B629E6700975598 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35667711B629E6700975598 /* ParseHelper.swift */; };
 		A3F6AD141B54776E00F4EDFF /* groupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6AD131B54776E00F4EDFF /* groupViewController.swift */; };
 		A3F6AD231B55A1D200F4EDFF /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6AD221B55A1D200F4EDFF /* MemberTableViewCell.swift */; };
 		A3F6AD251B55ACDE00F4EDFF /* taskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6AD241B55ACDE00F4EDFF /* taskListViewController.swift */; };
@@ -170,6 +174,10 @@
 		62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		62C8C1E01B06BD6500DC3EA7 /* TemplateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C50A82F7A3702CAE3667A41 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A35667661B5EB93300975598 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		A35667691B60572C00975598 /* CustomSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSignUpViewController.swift; path = TemplateProject/CustomSignUpViewController.swift; sourceTree = SOURCE_ROOT; };
+		A356676B1B60575200975598 /* CustomLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLoginViewController.swift; path = TemplateProject/CustomLoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		A35667711B629E6700975598 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		A3F6AD131B54776E00F4EDFF /* groupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupViewController.swift; sourceTree = "<group>"; };
 		A3F6AD221B55A1D200F4EDFF /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		A3F6AD241B55ACDE00F4EDFF /* taskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taskListViewController.swift; sourceTree = "<group>"; };
@@ -224,21 +232,20 @@
 				624262B21B4460CB00005CE3 /* AppDelegate.swift */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
-				A3F6AD551B596CA200F4EDFF /* TaskDisplayViewController.swift */,
+				A356675F1B5EB88200975598 /* Data Models */,
 				A3F6AD541B58634400F4EDFF /* ViewCells */,
-				A3F6AD521B5862B100F4EDFF /* createNewGroupViewController.swift */,
+				624262BE1B4460CB00005CE3 /* ViewControllers */,
 				A3F6AD461B58462400F4EDFF /* multipleGroupsViewController.swift */,
-				A3F6AD2A1B55BCB400F4EDFF /* Task.swift */,
+				A3F6AD521B5862B100F4EDFF /* createNewGroupViewController.swift */,
 				A3F6AD281B55B6FC00F4EDFF /* NewTaskViewController.swift */,
 				624262BD1B4460CB00005CE3 /* firstScreenViewController.swift */,
+				A3F6AD551B596CA200F4EDFF /* TaskDisplayViewController.swift */,
 				A3F6AD241B55ACDE00F4EDFF /* taskListViewController.swift */,
 				A3F6AD131B54776E00F4EDFF /* groupViewController.swift */,
-				A3F6AD501B5856ED00F4EDFF /* Member.swift */,
 				624262B71B4460CB00005CE3 /* Helpers */,
 				624262BA1B4460CB00005CE3 /* Images.xcassets */,
 				624262BB1B4460CB00005CE3 /* Info.plist */,
 				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
-				624262BE1B4460CB00005CE3 /* ViewControllers */,
 			);
 			path = TemplateProject;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 			children = (
 				624262B81B4460CB00005CE3 /* ErrorHandling.swift */,
 				624262B91B4460CB00005CE3 /* ParseLoginHelper.swift */,
+				A35667711B629E6700975598 /* ParseHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -255,6 +263,8 @@
 		624262BE1B4460CB00005CE3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A35667691B60572C00975598 /* CustomSignUpViewController.swift */,
+				A356676B1B60575200975598 /* CustomLoginViewController.swift */,
 				624262BF1B4460CB00005CE3 /* FilterViewController */,
 			);
 			path = ViewControllers;
@@ -336,6 +346,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A356675F1B5EB88200975598 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				A3F6AD2A1B55BCB400F4EDFF /* Task.swift */,
+				A3F6AD501B5856ED00F4EDFF /* Member.swift */,
+				A35667661B5EB93300975598 /* Group.swift */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
 		A3F6AD541B58634400F4EDFF /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +407,7 @@
 		62C8C1D81B06BD6500DC3EA7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Make School";
 				TargetAttributes = {
@@ -551,10 +572,14 @@
 				A3F6AD271B55ADAB00F4EDFF /* TaskTableViewCell.swift in Sources */,
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
 				A3F6AD471B58462400F4EDFF /* multipleGroupsViewController.swift in Sources */,
+				A35667671B5EB93300975598 /* Group.swift in Sources */,
 				A3F6AD4F1B584B2A00F4EDFF /* GroupTableViewCell.swift in Sources */,
+				A35667721B629E6700975598 /* ParseHelper.swift in Sources */,
 				A3F6AD2B1B55BCB400F4EDFF /* Task.swift in Sources */,
+				A356676A1B60572C00975598 /* CustomSignUpViewController.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				A3F6AD561B596CA200F4EDFF /* TaskDisplayViewController.swift in Sources */,
+				A356676C1B60575200975598 /* CustomLoginViewController.swift in Sources */,
 				624262C71B4460CB00005CE3 /* firstScreenViewController.swift in Sources */,
 				A3F6AD291B55B6FC00F4EDFF /* NewTaskViewController.swift in Sources */,
 				A3F6AD231B55A1D200F4EDFF /* MemberTableViewCell.swift in Sources */,
